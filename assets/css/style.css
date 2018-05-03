@@ -1,0 +1,8 @@
+body {
+    background-image: url(../images/rail.jpg);
+}
+
+.container {
+    opacity:0.8;
+    margin-bottom: 40px;
+}
