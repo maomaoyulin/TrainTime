@@ -90,6 +90,7 @@ database.ref().on("child_added", function(snapshot) {
     var frequencyTd = $("<td>").text(sv.frequency);
     var nextTrainTd = $("<td>").text(sv.nextTrainFormatted);
     var minutesAwayTd = $("<td>").text(sv.minutesAway);
+    
     // Append the newly created table data to the table row
     tRow.append(trainNumber, trainNameTd, destinationTd, frequencyTd, nextTrainTd, minutesAwayTd);
     // Append the table row to the table body
@@ -108,15 +109,9 @@ database.ref().on("child_added", function(snapshot) {
     $("#frequency").text(sv.frequency);
     $("#nextTrain").text(sv.nextTrainFormatted);
     $("#minutesAway").text(sv.minutesAway);
+    $("#removeBtn").append("<input type='submit' value='remove train' class='remove-train btn btn-primary btn-sm'>");
 
   // Handle the errors
 }, function(errorObject) {
   console.log("Errors handled: " + errorObject.code)
 });
-
-$("body").on("click", ".remove-train", function(){
-    $(this).closest ('tr').remove();
-    getKey = $(this).parent().parent().attr('id');
-    dataRef.child(getKey).remove();
-});
-
