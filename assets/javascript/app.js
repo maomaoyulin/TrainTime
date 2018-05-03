@@ -41,13 +41,13 @@ $("button").on("click", function(event) {
     firstTrainTime = $("#firstTrainTime").val().trim();
     destination = $("#destination").val().trim();
     frequency = $("#frequency").val().trim();
-    firstTrainTimeConverted = moment(firstTrainTime, "hh:mm").subtract(1, "years");
+    firstTrainTimeConverted = moment(firstTrainTime, "hh:mm A").subtract(1, "years");
     currentTime = moment();
     diffTime = moment().diff(moment(firstTrainTimeConverted), "minutes");
     remainder = diffTime % frequency;
     minutesAway = frequency - remainder;
     nextTrain = moment().add(minutesAway, "minutes");
-    nextTrainFormatted = moment(nextTrain).format("hh:mm");
+    nextTrainFormatted = moment(nextTrain).format("hh:mm A");
 
     console.log(trainName)
     console.log(firstTrainTime)
